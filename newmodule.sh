@@ -149,7 +149,7 @@ function str_rreplace() {
 	IFS=$'\n'
 	for RESOURCE in $(grep -R "${SEARCH}" "${DIR}" | cut -d ":" -f 1 -s | sort | uniq)
 	do
-		sed -i "s/${SEARCH}/${REPLACE}/g" "${RESOURCE}"
+		sed -i "" -e "s/${SEARCH}/${REPLACE}/g" "${RESOURCE}"
 		if [ $? -ne 0 ]
 		then
 			echo "Replacing '${SEARCH}' with '${REPLACE}' in '${RESOURCE}' failed." 1>&2
